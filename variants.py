@@ -25,7 +25,8 @@ with open('./list.csv') as files:
                 if '正' in words[1]:
                     target = words
                     for get_words in csv_r[loops:]:
-                        if get_words[0].startswith(target[0]):
+                        if get_words[0].startswith(target[0]) and \
+                                get_words[-2] is not target[-2]:
                             csv_w.writerow((get_words[-2], target[-2]))
                             continue
         print 'ending list-2'
