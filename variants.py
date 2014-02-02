@@ -4,5 +4,10 @@ import csv
 
 with open('./list.csv') as files:
     csv_files = csv.reader(files)
-    csv_files = [','.join(i) for i in csv_files]
-    print csv_files[1]
+    with open('./list-1.csv', 'w') as files_w:
+        csv_files_w = csv.writer(files_w)
+
+        # Remove png words.
+        for words in csv_files:
+            if 'png' not in words[-1]:
+                csv_files_w.writerow(words)
